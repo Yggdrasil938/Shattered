@@ -11,7 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	global_position += direction * move_speed * delta
-	print(layer_color)
+	#print(layer_color)
 	pass
 	
 func _get_layer_color(color_index: float) -> void:

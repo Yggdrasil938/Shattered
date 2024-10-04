@@ -1,4 +1,5 @@
 res://2d test scene.tscn
 res://canvas_layer.gd
+res://player.gd
 res://bullet.tscn
 res://red chip.tscn
