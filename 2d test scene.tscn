@@ -32,16 +32,6 @@ script = ExtResource("1_72b27")
 wait_time = 5.0
 one_shot = true
 
-[node name="Blue BG" type="Polygon2D" parent="Camera2D/Control/CanvasLayer"]
-visible = false
-z_index = -2
-z_as_relative = false
-position = Vector2(-9.87657, -21)
-scale = Vector2(1.06617, 1)
-color = Color(0.052731, 0.677331, 0.813175, 1)
-polygon = PackedVector2Array(-142, -43, -153, 1150, 1978, 1207, 1941, -30)
-script = ExtResource("2_uo3xw")
-
 [node name="Red BG" type="Polygon2D" parent="Camera2D/Control/CanvasLayer"]
 visible = false
 z_index = -2
@@ -51,6 +41,16 @@ scale = Vector2(1.06617, 1)
 color = Color(0.932369, 0.350295, 0.316703, 1)
 polygon = PackedVector2Array(-142, -43, -153, 1150, 1978, 1207, 1941, -30)
 script = ExtResource("3_mnusr")
+
+[node name="Blue BG" type="Polygon2D" parent="Camera2D/Control/CanvasLayer"]
+visible = false
+z_index = -2
+z_as_relative = false
+position = Vector2(-9.87657, -21)
+scale = Vector2(1.06617, 1)
+color = Color(0.052731, 0.677331, 0.813175, 1)
+polygon = PackedVector2Array(-142, -43, -153, 1150, 1978, 1207, 1941, -30)
+script = ExtResource("2_uo3xw")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Camera2D/Control"]
 script = ExtResource("5_41d8d")
@@ -82,8 +82,9 @@ polygon = PackedVector2Array(194.642, 317.686, 387.689, 402.648, 195.914, 491)
 position = Vector2(105.298, 0)
 
 [node name="Area2D" parent="Camera2D/Control/CanvasLayer2" instance=ExtResource("6_ygwgc")]
-position = Vector2(987, 399)
+position = Vector2(1623, 479)
 
 [node name="Enemy Spawn Timer" type="Timer" parent="Camera2D/Control/CanvasLayer2"]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
+autostart = true

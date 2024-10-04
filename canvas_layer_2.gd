@@ -1,6 +1,7 @@
 extends CanvasLayer
 var c_enemy = preload("res://red chip.tscn")
 var position: Vector2
+#var blue : Vector4 = (10, 275, 30, 255)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +23,9 @@ func _process(delta: float) -> void:
 		var random_y =  randi() % int(y_range[1]-y_range[0]) + 1 + y_range[0]
 		var random_pos = Vector2(random_x, random_y)
 
+		#enemy_instance.get_node("Chip Sprite").set_color(blue)
 		position=random_pos
 		enemy_instance.global_position = position
+		enemy_instance._get_layer_color(get_node("../CanvasLayer").layer_color)
 		get_node("Enemy Spawn Timer").start()
 	pass

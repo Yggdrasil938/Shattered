@@ -1,5 +1,5 @@
 extends CanvasLayer
-var layer_color = 0 # Keeps track of what color pane the player is on
+@export var layer_color = 0 # Keeps track of what color pane the player is on
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

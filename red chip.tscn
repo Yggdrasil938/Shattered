@@ -9,7 +9,7 @@ radius = 57.85
 position = Vector2(399, 318)
 script = ExtResource("1_ktbye")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Chip Sprite" type="Polygon2D" parent="."]
 position = Vector2(1, -6)
 color = Color(1, 0, 0.243137, 1)
 offset = Vector2(-359, -200)

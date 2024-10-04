@@ -1,6 +1,7 @@
 extends Area2D
 @export var move_speed = 2000
 var direction = Vector2 (1,0)
+var layer_color = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,6 +11,10 @@ func _ready() -> void:
 	queue_free()
 	print("bullet destroyed")
 	pass # Replace with function body.
+	
+func _set_layer_color () -> void:
+	layer_color = get_node("/root/Main/Camera2D/Control/CanvasLayer").layer_color
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,6 +23,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_entered(body: Area2D) -> void:
-	if body.is_in_group("enemies"):
+	_set_layer_color()
+	if body.is_in_group("enemies") && layer_color == 0:
 		queue_free()
 	pass # Replace with function body.
