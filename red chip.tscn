@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckelq4j5qt3pa"]
+
+[ext_resource type="Script" path="res://red_chip.gd" id="1_ktbye"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3oiur"]
+radius = 57.85
+
+[node name="Area2D" type="Area2D" groups=["enemies"]]
+position = Vector2(399, 318)
+script = ExtResource("1_ktbye")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(1, -6)
+color = Color(1, 0, 0.243137, 1)
+offset = Vector2(-359, -200)
+polygon = PackedVector2Array(340, 176, 322, 196, 349, 208, 349, 244, 379, 227, 395, 248, 409, 195, 379, 198, 381, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 1)
+shape = SubResource("CircleShape2D_3oiur")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

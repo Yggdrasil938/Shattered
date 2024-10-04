@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://tituay15oda3"]
+[gd_scene load_steps=8 format=3 uid="uid://tituay15oda3"]
 
 [ext_resource type="Script" path="res://canvas_layer.gd" id="1_72b27"]
 [ext_resource type="Script" path="res://2d_test_scene.gd" id="1_gbmyp"]
 [ext_resource type="Script" path="res://blue_bg.gd" id="2_uo3xw"]
 [ext_resource type="Script" path="res://red_bg.gd" id="3_mnusr"]
 [ext_resource type="Script" path="res://player.gd" id="4_8si11"]
+[ext_resource type="Script" path="res://canvas_layer_2.gd" id="5_41d8d"]
+[ext_resource type="PackedScene" uid="uid://ckelq4j5qt3pa" path="res://red chip.tscn" id="6_ygwgc"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(4, 6)
@@ -51,6 +53,7 @@ polygon = PackedVector2Array(-142, -43, -153, 1150, 1978, 1207, 1941, -30)
 script = ExtResource("3_mnusr")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Camera2D/Control"]
+script = ExtResource("5_41d8d")
 
 [node name="Player" type="Polygon2D" parent="Camera2D/Control/CanvasLayer2"]
 physics_interpolation_mode = 1
@@ -77,3 +80,10 @@ polygon = PackedVector2Array(194.642, 317.686, 387.689, 402.648, 195.914, 491)
 
 [node name="Marker2D" type="Marker2D" parent="Camera2D/Control/CanvasLayer2/Player"]
 position = Vector2(105.298, 0)
+
+[node name="Area2D" parent="Camera2D/Control/CanvasLayer2" instance=ExtResource("6_ygwgc")]
+position = Vector2(987, 399)
+
+[node name="Enemy Spawn Timer" type="Timer" parent="Camera2D/Control/CanvasLayer2"]
+wait_time = 3.0
+one_shot = true
