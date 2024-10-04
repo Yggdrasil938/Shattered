@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://tituay15oda3"]
+[gd_scene load_steps=4 format=3 uid="uid://tituay15oda3"]
+
+[ext_resource type="Script" path="res://canvas_layer.gd" id="1_72b27"]
+[ext_resource type="Script" path="res://blue_bg.gd" id="2_uo3xw"]
+[ext_resource type="Script" path="res://red_bg.gd" id="3_mnusr"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(4, 6)
@@ -15,23 +19,23 @@ offset_top = 540.0
 offset_right = 1000.0
 offset_bottom = 580.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -309.0
-offset_top = -68.5
-offset_right = 309.0
-offset_bottom = 68.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D/Control"]
+script = ExtResource("1_72b27")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Control/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 100
-text = "Hello World! "
-fit_content = true
-autowrap_mode = 0
+[node name="Changing Timer" type="Timer" parent="Camera2D/Control/CanvasLayer"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Blue BG" type="Polygon2D" parent="Camera2D/Control/CanvasLayer"]
+position = Vector2(-9.87657, -21)
+scale = Vector2(1.06617, 1)
+color = Color(0.052731, 0.677331, 0.813175, 1)
+polygon = PackedVector2Array(-142, -43, -153, 1150, 1978, 1207, 1941, -30)
+script = ExtResource("2_uo3xw")
+
+[node name="Red BG" type="Polygon2D" parent="Camera2D/Control/CanvasLayer"]
+position = Vector2(-13.8766, -27)
+scale = Vector2(1.06617, 1)
+color = Color(0.932369, 0.350295, 0.316703, 1)
+polygon = PackedVector2Array(-142, -43, -153, 1150, 1978, 1207, 1941, -30)
+script = ExtResource("3_mnusr")
