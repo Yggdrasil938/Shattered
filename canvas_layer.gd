@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	#print(get_node("Changing Timer").time_left)
 	
 	
-	if Input.is_action_pressed("ui_change_color") && get_node("Changing Timer").is_stopped(): # Whenever the change color button (space by default) is pressed
+	if Input.is_action_pressed("ui_change_color") && get_node("Changing Timer").is_stopped(): # Whenever the change color button (shift by default) is pressed
 		if layer_color == 0:
 			layer_color = 1
 			get_node("Blue BG").set_visible(false)
