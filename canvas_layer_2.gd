@@ -15,16 +15,19 @@ func _process(delta: float) -> void:
 		print("created enemy")
 		get_tree().root.add_child(enemy_instance)
 		randomize()
-		var x_range = Vector2(100, 750)
-		var y_range = Vector2(100, 750)
+		var x_range = Vector2(1250, 1920)
+		var y_range = Vector2(50, 1030)
 
+		enemy_instance._get_layer_color(get_node("../CanvasLayer").layer_color)
 		var random_x = randi() % int(x_range[1]- x_range[0]) + 1 + x_range[0] 
 		var random_y =  randi() % int(y_range[1]-y_range[0]) + 1 + y_range[0]
 		var random_pos = Vector2(random_x, random_y)
-
-		#enemy_instance.get_node("Chip Sprite").set_color(blue)
+		var random_color = randi_range(0, 1)
+		print(random_color)
+		enemy_instance._change_color(random_color)
+		
 		position=random_pos
 		enemy_instance.global_position = position
-		enemy_instance._get_layer_color(get_node("../CanvasLayer").layer_color)
+
 		get_node("Enemy Spawn Timer").start()
 	pass

@@ -21,9 +21,3 @@ func _set_layer_color () -> void:
 func _process(delta: float) -> void:
 	global_position += direction * move_speed * delta
 	pass
-
-func _on_area_entered(body: Area2D) -> void:
-	_set_layer_color()
-	if body.is_in_group("enemies") && layer_color == 0:
-		queue_free()
-	pass # Replace with function body.

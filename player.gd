@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released(p_input_key) && Input.is_anything_pressed() != true: # Once an action is released, key is changed to stop actions
 		print("yooooooo")
 		p_input_key ="x"
-		
+	
 	match p_input_key: # Input match statement, inputs get used to perform player movement.		
 		"ui_move_right":
 			if Input.is_action_pressed("ui_move_up"):
@@ -46,10 +46,13 @@ func _process(delta: float) -> void:
 				p_velocity = Vector2.RIGHT.rotated(0) * 0
 				if rotation != 0:
 					p_sprite_rotation = - rotation / 2
+			elif Input.is_action_just_released("ui_move_right"):
+				p_velocity = Vector2.RIGHT.rotated(0) * p_move_speed
 			else:
 				p_velocity = Vector2.RIGHT.rotated(0) * p_move_speed
 			if rotation != 0:
 				p_sprite_rotation = - rotation / 2
+
 		
 		"ui_move_left":
 			if Input.is_action_pressed("ui_move_up"):
