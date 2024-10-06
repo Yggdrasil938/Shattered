@@ -11,7 +11,7 @@ script = ExtResource("1_ktbye")
 
 [node name="Chip Sprite" type="Polygon2D" parent="."]
 position = Vector2(1, -6)
-color = Color(0.932369, 0.350295, 0.316703, 1)
+color = Color(0.936432, 0, 0.0424788, 1)
 offset = Vector2(-359, -200)
 polygon = PackedVector2Array(340, 176, 322, 196, 349, 208, 349, 244, 379, 227, 395, 248, 409, 195, 379, 198, 381, 160)
 
