@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Shattered"
-run/main_scene="res://2d test scene.tscn"
+run/main_scene="res://Debug Level.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -27,6 +27,7 @@ window/stretch/mode="viewport"
 
 enemies=""
 bullets=""
+levels=""
 
 [input]
 

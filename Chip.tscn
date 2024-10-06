@@ -1,17 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3nquhmswxfvf"]
+[gd_scene load_steps=3 format=3 uid="uid://dhyhrgad7kms3"]
 
-[ext_resource type="Script" path="res://red_chip.gd" id="1_ukutj"]
+[ext_resource type="Script" path="res://chip.gd" id="1_vigw1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3oiur"]
 radius = 57.85
 
-[node name="Area2D" type="Area2D" groups=["enemies"]]
+[node name="Chip" type="Area2D" groups=["enemies"]]
 position = Vector2(399, 318)
-script = ExtResource("1_ukutj")
+script = ExtResource("1_vigw1")
 
-[node name="Chip Sprite" type="Polygon2D" parent="."]
+[node name="Chip Sprite" type="Polygon2D" parent="." groups=["chip"]]
 position = Vector2(1, -6)
-color = Color(0.936432, 0, 0.0424788, 1)
 offset = Vector2(-359, -200)
 polygon = PackedVector2Array(340, 176, 322, 196, 349, 208, 349, 244, 379, 227, 395, 248, 409, 195, 379, 198, 381, 160)
 

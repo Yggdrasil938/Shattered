@@ -12,7 +12,7 @@ var p_input_key = "x" # This is set to x since null pointers cause issues, x is 
 
 # Instantiating scenes for instance spawning
 
-var p_bullet = preload("res://bullet.tscn") 
+var p_bullet = preload("res://Bullet.tscn") 
 
 func _input(event): # Extracts the event string from inputs for use in a match statement
 	var p_action = "x"

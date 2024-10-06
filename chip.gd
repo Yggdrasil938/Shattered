@@ -20,24 +20,21 @@ func _get_layer_color(color_index: float) -> void:
 	pass
 
 func _change_color (spawn_color: int) -> void:
-	print(spawn_color)
-	match spawn_color:
-		1:
-			print("color is blue")
-			get_node("Chip Sprite").set_color("AQUA")
-			e_color = 1
-		0:
-			e_color = 0
+	var color_str = current_pane._convert_int_to_color(spawn_color)
+	get_child(0).set_color(color_str)
+	e_color = spawn_color
+	print (color_str)
+	print(e_color)
 	pass
 	
 func _check_layer_color () -> void:
-	layer_color = current_pane.layer_color
+	layer_color = current_pane.pane_color_index
 	pass
 
 
 func _on_area_entered(body: Area2D) -> void:
 	_check_layer_color()
-	if body.is_in_group("bullets") && layer_color == e_color:
+	if body.is_in_group("bullets") && layer_color != e_color:
 		print("enemy hit!")
 		body.queue_free()
 		queue_free()

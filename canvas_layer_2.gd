@@ -1,5 +1,5 @@
 extends CanvasLayer
-var c_enemy = preload("res://red chip.tscn")
+var c_enemy = preload("res://Chip.tscn")
 var position: Vector2
 @onready var current_pane : Node = get_tree().get_first_node_in_group("Color Change Layer")
 
@@ -20,12 +20,11 @@ func _process(delta: float) -> void:
 		var x_range = Vector2(1250, 1920)
 		var y_range = Vector2(50, 1030)
 
-		enemy_instance._get_layer_color(current_pane.layer_color)
+		enemy_instance._get_layer_color(current_pane.pane_color_index)
 		var random_x = randi() % int(x_range[1]- x_range[0]) + 1 + x_range[0] 
 		var random_y =  randi() % int(y_range[1]-y_range[0]) + 1 + y_range[0]
 		var random_pos = Vector2(random_x, random_y)
-		var random_color = randi_range(0, 1)
-		print(random_color)
+		var random_color = randi_range(0, 9)
 		enemy_instance._change_color(random_color)
 		
 		position=random_pos

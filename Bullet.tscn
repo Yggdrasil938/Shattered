@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvr8b1tfw2j5q"]
+[gd_scene load_steps=3 format=3 uid="uid://mx28agvvs6x3"]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_aqq1o"]
+[ext_resource type="Script" path="res://bullet.gd" id="1_qm3ru"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q13wc"]
 size = Vector2(110.084, 40.6342)
 
-[node name="Area2D" type="Area2D" groups=["bullets"]]
+[node name="Bullet Node" type="Area2D" groups=["bullets"]]
 process_mode = 3
 z_as_relative = false
 position = Vector2(952, 519)
-script = ExtResource("1_aqq1o")
+script = ExtResource("1_qm3ru")
 
-[node name="Bullet" type="Polygon2D" parent="."]
+[node name="Bullet Sprite" type="Polygon2D" parent="."]
 z_index = 3
 z_as_relative = false
 position = Vector2(-77, -2)
