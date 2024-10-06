@@ -18,5 +18,11 @@ polygon = PackedVector2Array(340, 176, 322, 196, 349, 208, 349, 244, 379, 227, 3
 position = Vector2(6, 1)
 shape = SubResource("CircleShape2D_3oiur")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 10
+emission_shape = 1
+emission_sphere_radius = 6.95
+gravity = Vector2(0, 0)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
