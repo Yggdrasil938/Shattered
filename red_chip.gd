@@ -3,6 +3,7 @@ var layer_color : float =  0
 @export var move_speed = 100
 var e_color = 0
 var direction = Vector2 (-1,0)
+@onready var current_pane : Node = get_tree().get_first_node_in_group("Color Change Layer")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,7 +31,7 @@ func _change_color (spawn_color: int) -> void:
 	pass
 	
 func _check_layer_color () -> void:
-	layer_color = get_node("/root/Main/Camera2D/Control/CanvasLayer").layer_color
+	layer_color = current_pane.layer_color
 	pass
 
 
