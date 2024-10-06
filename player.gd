@@ -1,4 +1,4 @@
-extends Polygon2D
+extends CharacterBody2D
 
 # Movement default values 
 
@@ -8,6 +8,8 @@ var p_velocity = Vector2.ZERO
 var p_sprite_rotation = 0
 var p_reorient_speed = 0
 var p_input_key = "x" # This is set to x since null pointers cause issues, x is treated as no input
+
+@onready var bullet_spawn : Node = get_tree().get_first_node_in_group("Bullet Marker")
 
 
 # Instantiating scenes for instance spawning
@@ -110,7 +112,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("ui_shoot") && get_node("Shooting Timer").is_stopped():
 		var bullet_instance = p_bullet.instantiate()
 		get_tree().root.add_child(bullet_instance)
-		bullet_instance.global_position = get_node("Marker2D").global_position
+		bullet_instance.global_position = bullet_spawn.global_position
 		get_node("Shooting Timer").start()
 		
 	#Adapted code from the godot docs, will fine tune later

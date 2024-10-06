@@ -39,3 +39,13 @@ func _on_area_entered(body: Area2D) -> void:
 		body.queue_free()
 		queue_free()
 	pass # Replace with function body.
+
+
+# Checks for player collisions, destroy player if touching
+func _on_body_entered(body: CharacterBody2D) -> void:
+	_check_layer_color()
+	if body.is_in_group("player") && layer_color != e_color:
+		print("player hit!")
+		body.queue_free()
+		queue_free()
+	pass

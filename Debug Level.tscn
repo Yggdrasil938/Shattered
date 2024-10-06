@@ -16,30 +16,30 @@ enabled = false
 [node name="Combat Layer" type="CanvasLayer" parent="." groups=["Combat Layer"]]
 script = ExtResource("2_nkjbn")
 
-[node name="Player" type="Polygon2D" parent="Combat Layer"]
-physics_interpolation_mode = 1
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Combat Layer" groups=["player"]]
+use_parent_material = true
 position = Vector2(124, 545)
 scale = Vector2(0.626792, 0.541415)
-color = Color(0, 0, 0, 1)
-offset = Vector2(-253.673, -402.648)
-polygon = PackedVector2Array(194.642, 317.686, 387.689, 402.648, 195.914, 491)
-script = ExtResource("3_wnehk")
-
-[node name="Shooting Timer" type="Timer" parent="Combat Layer/Player"]
-wait_time = 0.3
-one_shot = true
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Combat Layer/Player"]
-use_parent_material = true
 motion_mode = 1
 safe_margin = 5.0
+script = ExtResource("3_wnehk")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Combat Layer/Player/CharacterBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Combat Layer/CharacterBody2D"]
 physics_interpolation_mode = 1
 position = Vector2(-255.268, -400.801)
 polygon = PackedVector2Array(194.642, 317.686, 387.689, 402.648, 195.914, 491)
 
-[node name="Marker2D" type="Marker2D" parent="Combat Layer/Player"]
+[node name="Shooting Timer" type="Timer" parent="Combat Layer/CharacterBody2D"]
+wait_time = 0.3
+one_shot = true
+
+[node name="Player" type="Polygon2D" parent="Combat Layer/CharacterBody2D"]
+physics_interpolation_mode = 1
+color = Color(0, 0, 0, 1)
+offset = Vector2(-253.673, -402.648)
+polygon = PackedVector2Array(194.642, 317.686, 387.689, 402.648, 195.914, 491)
+
+[node name="Marker2D" type="Marker2D" parent="Combat Layer/CharacterBody2D/Player" groups=["Bullet Marker"]]
 position = Vector2(105.298, 0)
 
 [node name="Enemy Spawn Timer" type="Timer" parent="Combat Layer"]

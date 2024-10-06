@@ -28,6 +28,7 @@ window/stretch/mode="viewport"
 enemies=""
 bullets=""
 levels=""
+player=""
 
 [input]
 

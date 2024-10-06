@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		var random_x = randi() % int(x_range[1]- x_range[0]) + 1 + x_range[0] 
 		var random_y =  randi() % int(y_range[1]-y_range[0]) + 1 + y_range[0]
 		var random_pos = Vector2(random_x, random_y)
-		var random_color = randi_range(0, 9)
+		var random_color = randi_range(0, 1)
 		enemy_instance._change_color(random_color)
 		
 		position=random_pos
