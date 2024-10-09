@@ -31,14 +31,15 @@ func _change_color (spawn_color: int) -> void:
 func _check_layer_color () -> void:
 	layer_color = current_pane.pane_color_index
 	if layer_color == e_color:
-		get_node("CPUParticles2D").emitting = true
+		get_child(2).emitting = true
+		get_child(0).visible = false
 	else:
-		get_node("CPUParticles2D").emitting = false
+		get_child(2).emitting = false
+		get_child(0).visible = true
 	pass
 
 
 func _on_area_entered(body: Area2D) -> void:
-	_check_layer_color()
 	if body.is_in_group("bullets") && layer_color != e_color:
 		print("enemy hit!")
 		body.queue_free()
