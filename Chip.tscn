@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhyhrgad7kms3"]
+[gd_scene load_steps=4 format=3 uid="uid://dhyhrgad7kms3"]
 
 [ext_resource type="Script" path="res://chip.gd" id="1_vigw1"]
+[ext_resource type="Texture2D" uid="uid://x1wrl0umha20" path="res://particle.png" id="2_bdv3y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3oiur"]
 radius = 57.85
@@ -19,10 +20,21 @@ position = Vector2(6, 1)
 shape = SubResource("CircleShape2D_3oiur")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 10
+amount = 20
+lifetime = 3.0
+speed_scale = 5.0
+texture = ExtResource("2_bdv3y")
 emission_shape = 1
-emission_sphere_radius = 6.95
+emission_sphere_radius = 36.69
+particle_flag_align_y = true
+spread = 180.0
 gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = 65.45
+angular_velocity_max = 145.45
+angle_min = -167.3
+angle_max = 167.3
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

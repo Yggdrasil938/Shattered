@@ -29,6 +29,7 @@ enemies=""
 bullets=""
 levels=""
 player=""
+"spawn timer"=""
 
 [input]
 

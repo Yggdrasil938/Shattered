@@ -58,5 +58,6 @@ func _process(delta: float) -> void:
 		if pane_color_index > pane_set_size - 1 :
 			pane_color_index = 0 # Increments the pane index, if the index size is out of bounds reset to 0
 		_change_pane(pane_color_index)
+		get_tree().call_group("enemies", "_check_layer_color")
 		pane_cooldown.start(1) 
 	pass

@@ -23,12 +23,17 @@ func _change_color (spawn_color: int) -> void:
 	var color_str = current_pane._convert_int_to_color(spawn_color)
 	get_child(0).set_color(color_str)
 	e_color = spawn_color
+	_check_layer_color()
 	print (color_str)
 	print(e_color)
 	pass
 	
 func _check_layer_color () -> void:
 	layer_color = current_pane.pane_color_index
+	if layer_color == e_color:
+		get_node("CPUParticles2D").emitting = true
+	else:
+		get_node("CPUParticles2D").emitting = false
 	pass
 
 
@@ -49,3 +54,4 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 		body.queue_free()
 		queue_free()
 	pass
+	
