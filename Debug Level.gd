@@ -1,6 +1,6 @@
 extends Node2D
-var level_pane_set: Array[int] = [0,1] # Just red and blue for now
-var melee_deck: Dictionary = {"chip": [1, 10]}
+var level_pane_set: Array[int] = [0,1,3,4] # Just red and blue for now
+var melee_deck: Dictionary = {"chip": [3,3], "fast_chip": [5,2], "chip_angle": [2,2]}
 var ranged_deck: Dictionary = {}
 var hazard_deck: Dictionary = {}
 var miniboss_deck: Dictionary = {}

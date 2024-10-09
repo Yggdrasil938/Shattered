@@ -21,6 +21,11 @@ script = ExtResource("2_nkjbn")
 [node name="Director Parent" type="Node2D" parent="Combat Layer"]
 script = ExtResource("3_g0ti2")
 
+[node name="Difficulty Increase Timer" type="Timer" parent="Combat Layer/Director Parent"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
 [node name="Slow Director" type="Node2D" parent="Combat Layer/Director Parent"]
 
 [node name="Spawn Timer" type="Timer" parent="Combat Layer/Director Parent/Slow Director"]

@@ -1,4 +1,4 @@
-extends "res://chip_main.gd"
+extends "res://chip.gd"
 
 
 # Called when the node enters the scene tree for the first time.
