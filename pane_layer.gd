@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+
 var pane_color_index = 0 # Keeps track of what color pane the player is on
 
 # Local variables for referencing nodes, makes changing name and heirarchy much less painful

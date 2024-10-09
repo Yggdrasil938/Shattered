@@ -24,8 +24,8 @@ func _change_color (spawn_color: int) -> void:
 	get_child(0).set_color(color_str)
 	e_color = spawn_color
 	_check_layer_color()
-	print (color_str)
-	print(e_color)
+	#print (color_str)
+	#print(e_color)
 	pass
 	
 func _check_layer_color () -> void:

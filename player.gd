@@ -33,7 +33,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_released(p_input_key) && Input.is_anything_pressed() != true: # Once an action is released, key is changed to stop actions
-		print("yooooooo")
+		#print("yooooooo")
 		p_input_key ="x"
 	
 	match p_input_key: # Input match statement, inputs get used to perform player movement.		
