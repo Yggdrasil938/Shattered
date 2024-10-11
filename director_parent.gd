@@ -1,12 +1,12 @@
 extends Node2D
-var enemy_load_deck : Dictionary = {"chip" : preload("res://Chip.tscn"), "fast_chip" : preload("res://fast_chip.tscn"), "chip_angle" : preload("res://chip_angle.tscn")}
+var enemy_load_deck : Dictionary = {"chip" : preload("res://Chip.tscn"), "fast_chip" : preload("res://fast_chip.tscn"), "chip_angle" : preload("res://chip_angle.tscn"), "chip_shoot" : preload("res://chip_shoot.tscn")}
 
 
 @export var d_spawn_area : Rect2
 @export var d_credits : float
-@export var d_credit_rate : float = 4
+@export var d_credit_rate : float = 1
 
-@onready var d_spawn_timer : Node = get_node("Slow Director/Spawn Timer")
+@onready var d_spawn_timer : Node = get_child(0)
 @onready var current_level :  Node = get_tree().get_first_node_in_group("levels")
 
 var random = RandomNumberGenerator.new()
@@ -39,7 +39,7 @@ func _enemy_lottery(e_group : Dictionary) -> Array:
 	var wave_amount = d_credits / e_group[winner][0]
 	return [winner,floor(wave_amount)]
 	
-func _spawn_wave() -> void:
+func _spawn_wave(timer : float) -> void:
 	var group = _group_lottery(d_deck_dict)
 	var wave = _enemy_lottery(group)
 	print(wave)
@@ -61,13 +61,13 @@ func _spawn_wave() -> void:
 			var random_y =  randi() % int(y_range[1]-y_range[0]) + 1 + y_range[0]
 			var random_pos = Vector2(random_x, random_y)
 			var random_color = randi_range(0, current_level.level_pane_set.size()-1)  
-			enemy_instance._change_color(random_color)
+			enemy_instance._change_color(current_level.level_pane_set[random_color], random_color)
 		
 			position=random_pos
 			enemy_instance.global_position = position
-			d_spawn_timer.start(randf_range(2,5))
+			d_spawn_timer.start(timer)
 	else:
-		d_spawn_timer.start()
+		d_spawn_timer.start(2,5)
 		print("NOT ENOUGH CREDITS FOR THIS WAVE!")
 	pass
 
@@ -80,13 +80,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print
 	#print(d_spawn_timer.time_left)
 	d_credits += (d_credit_rate/60)
-	if d_spawn_timer.is_stopped():
-		_spawn_wave()
+	#if d_spawn_timer.is_stopped():
+		#_spawn_wave()
 	if difficulty_scaling.is_stopped():
-		d_credit_rate += .75
+		d_credit_rate += .75   
 		difficulty_scaling.start()
 		print(d_credit_rate)
 	pass

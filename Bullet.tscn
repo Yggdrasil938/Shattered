@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://bullet.gd" id="1_qm3ru"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q13wc"]
-size = Vector2(110.084, 40.6342)
+size = Vector2(88, 17)
 
 [node name="Bullet Node" type="Area2D" groups=["bullets"]]
 process_mode = 3

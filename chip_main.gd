@@ -19,10 +19,10 @@ func _get_layer_color(color_index: float) -> void:
 	layer_color = color_index
 	pass
 
-func _change_color (spawn_color: int) -> void:
+func _change_color (spawn_color: int, color_index : int) -> void:
 	var color_str = current_pane._convert_int_to_color(spawn_color)
 	get_child(0).set_color(color_str)
-	e_color = spawn_color
+	e_color = color_index
 	_check_layer_color()
 	#print (color_str)
 	#print(e_color)
