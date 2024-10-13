@@ -21,5 +21,6 @@ mono_crash.*.json
 # Ignoring game exports, will place manually in releases
 *.exe
 *.x86_64
+*.sh
 
 # End of https://www.toptal.com/developers/gitignore/api/godot
