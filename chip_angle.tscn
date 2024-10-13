@@ -1,14 +1,38 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2wtdxs2oxwn3"]
 
 [ext_resource type="Texture2D" uid="uid://x1wrl0umha20" path="res://particle.png" id="1_22nlx"]
-[ext_resource type="Script" path="res://chip_angle.tcsn.gd" id="1_bpgol"]
+
+[sub_resource type="GDScript" id="GDScript_t1i10"]
+script/source = "extends \"res://chip_main.gd\"
+var random = RandomNumberGenerator.new()
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	move_speed = 200
+	random.randomize()
+	var x = random.randi_range(0, 1)
+	if x == 0:
+		random.randomize()
+		direction[1] = random.randf_range(-.65, -.15)
+	else:
+		random.randomize()
+		direction[1] = random.randf_range(.15, .65)
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	global_position += direction * move_speed * delta
+	pass
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3oiur"]
 radius = 57.85
 
 [node name="Chip" type="Area2D" groups=["enemies"]]
 position = Vector2(399, 318)
-script = ExtResource("1_bpgol")
+script = SubResource("GDScript_t1i10")
 
 [node name="Chip Sprite" type="Polygon2D" parent="." groups=["chip"]]
 position = Vector2(1, -6)

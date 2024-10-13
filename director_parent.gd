@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 	#if d_spawn_timer.is_stopped():
 		#_spawn_wave()
 	if difficulty_scaling.is_stopped():
-		d_credit_rate += .75   
+		d_credit_rate += .75
 		difficulty_scaling.start()
 		print(d_credit_rate)
 	pass

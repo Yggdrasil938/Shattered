@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cshnirvr0flf3"]
+[gd_scene load_steps=6 format=3 uid="uid://cshnirvr0flf3"]
 
 [ext_resource type="Script" path="res://Debug Level.gd" id="1_jrgxa"]
-[ext_resource type="Script" path="res://canvas_layer_2.gd" id="2_nkjbn"]
 [ext_resource type="Script" path="res://slow_director.gd" id="3_snunp"]
 [ext_resource type="Script" path="res://player.gd" id="3_wnehk"]
 [ext_resource type="Script" path="res://fast_director.gd" id="4_iandv"]
@@ -16,8 +15,7 @@ script = ExtResource("1_jrgxa")
 anchor_mode = 0
 enabled = false
 
-[node name="Combat Layer" type="CanvasLayer" parent="." groups=["Combat Layer"]]
-script = ExtResource("2_nkjbn")
+[node name="Combat Layer" type="CanvasLayer" parent="."]
 
 [node name="Director Parent" type="Node2D" parent="Combat Layer"]
 
@@ -34,11 +32,21 @@ wait_time = 12.0
 one_shot = true
 autostart = true
 
+[node name="Difficulty Increase Timer" type="Timer" parent="Combat Layer/Director Parent/Slow Director"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
 [node name="Fast Director" type="Node2D" parent="Combat Layer/Director Parent"]
 script = ExtResource("4_iandv")
 
 [node name="Spawn Timer" type="Timer" parent="Combat Layer/Director Parent/Fast Director"]
 wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Difficulty Increase Timer" type="Timer" parent="Combat Layer/Director Parent/Fast Director"]
+wait_time = 10.0
 one_shot = true
 autostart = true
 
