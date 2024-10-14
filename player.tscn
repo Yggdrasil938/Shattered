@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3cv4irfggyqp"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_s7c81"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+use_parent_material = true
+position = Vector2(124, 545)
+scale = Vector2(0.626792, 0.541415)
+motion_mode = 1
+safe_margin = 5.0
+script = ExtResource("1_s7c81")
+
+[node name="Player Hitbox" type="CollisionPolygon2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(-255.268, -400.801)
+polygon = PackedVector2Array(194.642, 317.686, 387.689, 402.648, 195.914, 491)
+
+[node name="Shooting Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="Player Sprite" type="Polygon2D" parent="."]
+physics_interpolation_mode = 1
+color = Color(0, 0, 0, 1)
+offset = Vector2(-253.673, -402.648)
+polygon = PackedVector2Array(194.642, 317.686, 387.689, 402.648, 195.914, 491)
+
+[node name="Bullet Spawn Point" type="Marker2D" parent="Player Sprite" groups=["Bullet Marker"]]
+position = Vector2(105.298, 0)
