@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://4t5qob2fjded"]
+
+[ext_resource type="Script" path="res://Enemy Chips/Ranged/Basic/chip_shoot.gd" id="1_xa6v6"]
+[ext_resource type="Texture2D" uid="uid://x1wrl0umha20" path="res://Enemy Chips/Shared/particle.png" id="2_pwxc8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3oiur"]
+radius = 57.85
+
+[node name="Chip" type="Area2D" groups=["enemies"]]
+position = Vector2(399, 318)
+script = ExtResource("1_xa6v6")
+
+[node name="Chip Sprite" type="Polygon2D" parent="." groups=["chip"]]
+position = Vector2(1, -6)
+offset = Vector2(-359, -200)
+polygon = PackedVector2Array(340, 176, 322, 196, 349, 208, 349, 244, 379, 227, 395, 248, 409, 195, 379, 198, 381, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 1)
+shape = SubResource("CircleShape2D_3oiur")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 20
+lifetime = 3.0
+speed_scale = 5.0
+texture = ExtResource("2_pwxc8")
+emission_shape = 1
+emission_sphere_radius = 36.69
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = 65.45
+angular_velocity_max = 145.45
+angle_min = -167.3
+angle_max = 167.3
+
+[node name="Shooting Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-34, -1)
+
+[node name="Waiting Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

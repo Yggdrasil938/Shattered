@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://8inprobiy5h1"]
+
+[ext_resource type="Script" path="res://Combat Mechanics/Mechanical Layers/Spawner/chip_spawner.gd" id="1_l45ys"]
+[ext_resource type="Script" path="res://Combat Mechanics/Mechanical Layers/Spawner/Directors/fast_director.gd" id="2_3nbv1"]
+[ext_resource type="Script" path="res://Combat Mechanics/Mechanical Layers/Spawner/Directors/slow_director.gd" id="3_bp3fx"]
+
+[node name="Chip Spawner" type="CanvasLayer" groups=["combat layer"]]
+script = ExtResource("1_l45ys")
+
+[node name="Fast Director" type="Node2D" parent="."]
+script = ExtResource("2_3nbv1")
+
+[node name="Spawn Timer" type="Timer" parent="Fast Director"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Difficulty Increase Timer" type="Timer" parent="Fast Director"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Slow Director" type="Node2D" parent="."]
+script = ExtResource("3_bp3fx")
+
+[node name="Spawn Timer" type="Timer" parent="Slow Director"]
+wait_time = 12.0
+one_shot = true
+autostart = true
+
+[node name="Difficulty Increase Timer" type="Timer" parent="Slow Director"]
+wait_time = 10.0
+one_shot = true
+autostart = true

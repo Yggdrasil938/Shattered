@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckqahl3mqg602"]
+
+[ext_resource type="Script" path="res://Combat Mechanics/Mechanical Layers/Painter/pane_layer.gd" id="1_gafm4"]
+
+[node name="Pane Painter" type="CanvasLayer" groups=["Color Change Layer"]]
+layer = -1
+script = ExtResource("1_gafm4")
+
+[node name="Pane Change Cooldown Timer" type="Timer" parent="." groups=["pane cooldown timer"]]
+wait_time = 5.0
+one_shot = true
+
+[node name="Active Pane BG" type="Polygon2D" parent="." groups=["Pane BG"]]
+z_index = -2
+z_as_relative = false
+position = Vector2(-13.8766, -27)
+scale = Vector2(1.06617, 1)
+color = Color(0.932369, 0.350295, 0.316703, 1)
+polygon = PackedVector2Array(-142, -43, -153, 1150, 1978, 1207, 1941, -30)

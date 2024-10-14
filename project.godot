@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Shattered"
-run/main_scene="res://Debug Level.tscn"
+run/main_scene="res://Levels/Debug/Debug Level.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 run/max_fps=60
 config/icon="res://icon.svg"
