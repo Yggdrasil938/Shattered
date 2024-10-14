@@ -10,7 +10,7 @@ var p_reorient_speed = 0
 var p_input_key = "x" # This is set to x since null pointers cause issues, x is treated as no input
 
 @onready var bullet_spawn : Node = get_tree().get_first_node_in_group("Bullet Marker")
-
+@onready var combat_layer:  Node = get_tree().get_first_node_in_group("combat layer")
 
 # Instantiating scenes for instance spawning
 
@@ -111,7 +111,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("ui_shoot") && get_node("Shooting Timer").is_stopped():
 		var bullet_instance = p_bullet.instantiate()
-		get_tree().root.add_child(bullet_instance)
+		combat_layer.add_child(bullet_instance)
 		bullet_instance.global_position = bullet_spawn.global_position
 		get_node("Shooting Timer").start()
 		

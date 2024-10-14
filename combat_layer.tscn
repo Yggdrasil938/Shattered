@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://combat_layer.gd" id="1_pj227"]
 [ext_resource type="Script" path="res://slow_director.gd" id="2_o007a"]
 
-[node name="Combat Layer" type="CanvasLayer"]
+[node name="Combat Layer" type="CanvasLayer" groups=["combat layer"]]
 script = ExtResource("1_pj227")
 
 [node name="Fast Director" type="Node2D" parent="."]

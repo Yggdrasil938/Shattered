@@ -51,7 +51,8 @@ func _spawn_wave(timer : float) -> void:
 		for x in wave[1]:
 			var enemy_instance = enemy_load_deck[wave[0]].instantiate()
 			#print("created enemy")
-			get_tree().root.add_child(enemy_instance)
+			#get_tree().root.add_child(enemy_instance)
+			add_child(enemy_instance)
 			randomize()
 			var x_range = Vector2(1250, 1920)
 			var y_range = Vector2(50, 1030)

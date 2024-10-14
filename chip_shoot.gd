@@ -5,7 +5,7 @@ var e_bullet = preload("res://chip_bullet.tscn")
 var random = RandomNumberGenerator.new()
 @onready var timer = get_child(3)
 var waiting_to_shoot = false
-
+@onready var combat_layer:  Node = get_tree().get_first_node_in_group("combat layer")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 	if timer.is_stopped() != true && get_child(5).is_stopped() && waiting_to_shoot:
 		
 		var bullet_instance = e_bullet.instantiate()
-		get_tree().root.add_child(bullet_instance)
+		combat_layer.add_child(bullet_instance)
 		bullet_instance._change_color(current_level.level_pane_set[e_color], e_color)
 		bullet_instance.global_position = bullet_spawn.global_position
 		waiting_to_shoot  = false

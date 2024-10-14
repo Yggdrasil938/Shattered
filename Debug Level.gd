@@ -22,13 +22,21 @@ var level_deck: Dictionary = {"m" : [melee_deck, 2], "r" : [ranged_deck, 1] , "h
 #var level_deck: Dictionary = {"m" : [melee_deck, 1], "r" : [ranged_deck, 100] , "h" : [hazard_deck, 0], "mb" : [miniboss_deck, 0]}
 
 # Instantiates pane painter layer and combat layer to start the level
-func _level_startup() -> void:
+func _level_startup() -> void:  
 	var painter_instance = pane_painter.instantiate()
 	add_child(painter_instance)
 	var combat_l_instance = combat_layer.instantiate()
 	add_child(combat_l_instance)
 	pass
-
+	
+func _restart() -> void:
+	var current_cl : Node = get_tree().get_first_node_in_group("combat layer")
+	remove_child(current_cl)
+	var current_ccl :  Node = get_tree().get_first_node_in_group("Color Change Layer")
+	remove_child(current_ccl)
+	_level_startup()
+	pass
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_level_startup() # Starts level
@@ -37,4 +45,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_pressed("ui_restart"):
+		_restart()
 	pass
