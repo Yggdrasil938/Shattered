@@ -29,6 +29,8 @@ func _process(delta: float) -> void:
 		var bullet_instance = e_bullet.instantiate()
 		combat_layer.add_child(bullet_instance)
 		bullet_instance._change_color(current_level.level_pane_set[e_color], e_color)
+		if shattered ==  true:
+				bullet_instance._shattered_aggro() 
 		bullet_instance.global_position = bullet_spawn.global_position
 		waiting_to_shoot  = false
 		timer.start(randf_range(3,6))

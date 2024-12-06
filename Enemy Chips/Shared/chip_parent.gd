@@ -4,7 +4,9 @@ var layer_color : float =  0
 var e_color = 0
 var direction = Vector2 (-1,0)
 @onready var current_pane : Node = get_tree().get_first_node_in_group("Color Change Layer")
+@onready var player : Node = get_tree().get_first_node_in_group("player")
 
+var shattered = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -17,6 +19,12 @@ func _process(delta: float) -> void:
 	
 func _get_layer_color(color_index: float) -> void:
 	layer_color = color_index
+	pass
+	
+func _reduce_movement() -> void:
+	move_speed =  move_speed * .1
+	get_child(2).emitting = true
+	get_child(2).color = Color("LIGHT_SKY_BLUE")
 	pass
 
 func _change_color (spawn_color: int, color_index : int) -> void:
@@ -34,7 +42,8 @@ func _check_layer_color () -> void:
 		get_child(2).emitting = true
 		get_child(0).visible = false
 	else:
-		get_child(2).emitting = false
+		if get_child(2).color != Color("LIGHT_SKY_BLUE"):
+			get_child(2).emitting = false
 		get_child(0).visible = true
 	pass
 
@@ -50,9 +59,20 @@ func _on_area_entered(body: Area2D) -> void:
 # Checks for player collisions, destroy player if touching
 func _on_body_entered(body: CharacterBody2D) -> void:
 	_check_layer_color()
-	if body.is_in_group("player") && layer_color != e_color:
+	if body.is_in_group("player") && layer_color != e_color && player.p_invuln != true:
 		print("player hit!")
 		body.queue_free()
 		queue_free()
 	pass
 	
+func _shattered_aggro() -> void:
+	move_speed = move_speed * 2
+	get_child(0).set_color("BLACK")
+	shattered = true
+	pass
+	
+func _shattered_calm() -> void:
+	move_speed = move_speed * .5
+	_change_color(e_color,e_color)
+	shattered = false
+	pass

@@ -5,9 +5,9 @@ extends Node2D
 @onready var combat_layer = preload("res://Combat Mechanics/Mechanical Layers/Spawner/chip_spawner.tscn")
 
 # Set of color panes in the current level by index
-#var level_pane_set: Array[int] = [0,1]
+var level_pane_set: Array[int] = [0,1]
 #var level_pane_set: Array[int] = [0,1,2,3,4,5,6,7,8,9] 
-var level_pane_set: Array[int] = [0,1,3,4] 
+#var level_pane_set: Array[int] = [0,1,3,4] 
  
 # Set of enemy decks in current level
 # [0] is the enemy price, [1] is how many "tickets" it puts in the lottery

@@ -34,6 +34,9 @@ player=""
 e_bullet=""
 "Color Change Layer"=""
 "combat layer"=""
+"camera main"=""
+"player camera"=""
+director=""
 
 [input]
 

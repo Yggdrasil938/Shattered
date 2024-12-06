@@ -3,6 +3,5 @@
 [ext_resource type="Script" path="res://Levels/Debug/debug level.gd" id="1_8wffv"]
 
 [node name="Debug Level" type="Node2D" groups=["levels"]]
-visible = false
 position = Vector2(4, 6)
 script = ExtResource("1_8wffv")

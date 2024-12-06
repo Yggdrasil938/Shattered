@@ -1,23 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ci0lvkqynrqcs"]
 
 [ext_resource type="Texture2D" uid="uid://ck621eq25048y" path="res://Enemy Chips/Shared/bullet_particle.png" id="1_beoq4"]
-
-[sub_resource type="GDScript" id="GDScript_48e5f"]
-script/source = "extends \"res://Enemy Chips/Shared/chip_parent.gd\"
-
-func _ready() -> void:
-	await get_tree().create_timer(10).timeout # Bullets last 3 seconds maximum before despawning
-	queue_free()
-	pass 
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	global_position += direction * move_speed * delta # Movement Calculation
-	pass
-
-func _on_area_entered(body: Area2D) -> void:
-	pass # Replace with function body.
-"
+[ext_resource type="Script" path="res://Enemy Chips/Ranged/Shared/chip_bullet.gd" id="1_w8b3g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dnp4h"]
 radius = 9.0
@@ -27,7 +11,7 @@ height = 58.0
 process_mode = 3
 z_as_relative = false
 position = Vector2(952, 519)
-script = SubResource("GDScript_48e5f")
+script = ExtResource("1_w8b3g")
 
 [node name="Bullet Sprite" type="Polygon2D" parent="."]
 z_index = 3

@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckqahl3mqg602"]
+[gd_scene load_steps=5 format=3 uid="uid://ckqahl3mqg602"]
 
 [ext_resource type="Script" path="res://Combat Mechanics/Mechanical Layers/Painter/pane_layer.gd" id="1_gafm4"]
+[ext_resource type="Texture2D" uid="uid://x1wrl0umha20" path="res://Enemy Chips/Shared/particle.png" id="2_mnqq5"]
+
+[sub_resource type="Gradient" id="Gradient_xlmhf"]
+colors = PackedColorArray(0.580392, 0.580392, 0.580392, 0.160784, 1, 1, 1, 0.584314)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nacyu"]
+gradient = SubResource("Gradient_xlmhf")
 
 [node name="Pane Painter" type="CanvasLayer" groups=["Color Change Layer"]]
 layer = -1
+follow_viewport_enabled = true
 script = ExtResource("1_gafm4")
 
 [node name="Pane Change Cooldown Timer" type="Timer" parent="." groups=["pane cooldown timer"]]
@@ -17,3 +25,35 @@ position = Vector2(-13.8766, -27)
 scale = Vector2(1.06617, 1)
 color = Color(0.932369, 0.350295, 0.316703, 1)
 polygon = PackedVector2Array(-142, -43, -153, 1150, 1978, 1207, 1941, -30)
+
+[node name="Ammo Reload Rate" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 0.036
+anchor_top = 0.736
+anchor_right = 0.086
+anchor_bottom = 1.0
+offset_left = 0.879997
+offset_top = 0.119934
+offset_right = -0.12001
+offset_bottom = 6.0
+max_value = 20.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_nacyu")
+texture_progress = ExtResource("2_mnqq5")
+
+[node name="Slow Down Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Invuln Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Ammo Reload Rate" to="." method="_on_ammo_reload_rate_timeout"]
+[connection signal="timeout" from="Slow Down Timer" to="." method="_on_slow_down_timer_timeout"]
+[connection signal="timeout" from="Invuln Timer" to="." method="_on_invuln_timer_timeout"]

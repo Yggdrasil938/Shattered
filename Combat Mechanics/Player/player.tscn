@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3cv4irfggyqp"]
+[gd_scene load_steps=3 format=3 uid="uid://d3cv4irfggyqp"]
 
 [ext_resource type="Script" path="res://Combat Mechanics/Player/player.gd" id="1_s7c81"]
+[ext_resource type="Script" path="res://Combat Mechanics/Player/player_camera.gd" id="2_lalye"]
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["Fast Director", "Slow Director", "player"]]
 use_parent_material = true
 position = Vector2(124, 545)
 scale = Vector2(0.626792, 0.541415)
@@ -27,3 +28,27 @@ polygon = PackedVector2Array(194.642, 317.686, 387.689, 402.648, 195.914, 491)
 
 [node name="Bullet Spawn Point" type="Marker2D" parent="Player Sprite" groups=["Bullet Marker"]]
 position = Vector2(105.298, 0)
+
+[node name="Flash Timer" type="Timer" parent="."]
+wait_time = 0.06
+one_shot = true
+
+[node name="Shattered Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Buff Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Pane Zoom Camera" type="Camera2D" parent="." groups=["player camera"]]
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+script = ExtResource("2_lalye")
+
+[connection signal="timeout" from="Flash Timer" to="." method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="Shattered Timer" to="." method="_on_shattered_timer_timeout"]
+[connection signal="timeout" from="Buff Timer" to="." method="_on_buff_timer_timeout"]

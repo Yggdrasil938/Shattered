@@ -14,6 +14,8 @@ var random = RandomNumberGenerator.new()
 
 @onready var d_deck_dict: Dictionary = current_level.level_deck.duplicate()
 
+var shattered = false
+
 func _pool_cards(tickets : int, pool : Array, type : String) -> Array:
 	for x in range(0,tickets):
 		pool.append(type)
@@ -57,23 +59,25 @@ func _spawn_wave(timer : float) -> void:
 			var y_range = Vector2(50, 1030)
 
 			#enemy_instance._get_layer_color(current_pane.pane_color_index)
-			var random_x = randi() % int(x_range[1]- x_range[0]) + 1 + x_range[0] 
+			#var random_x = randi() % int(x_range[1]- x_range[0]) + 1 + x_range[0] 
+			#randomize()
+			#var random_y =  randi() % int(y_range[1]-y_range[0]) + 1 + y_range[0]
 			randomize()
-			var random_y =  randi() % int(y_range[1]-y_range[0]) + 1 + y_range[0]
-			randomize()
-			var random_pos = Vector2(random_x, random_y)
+			var random_pos = Vector2(randi_range(x_range[0], x_range[1]), randi_range(50, 1030))
 			randomize()
 			var random_color = randi_range(0, current_level.level_pane_set.size()-1)  
 			enemy_instance._change_color(current_level.level_pane_set[random_color], random_color)
-		
-			position=random_pos
-			enemy_instance.global_position = position
+			
+			#position=random_pos
+			enemy_instance.global_position = random_pos
 			d_spawn_timer.start(timer)
+			if shattered == true:
+				enemy_instance._shattered_aggro()
 	else:
-		d_spawn_timer.start(2,5)
+		d_spawn_timer.start(randi_range(2,5))
 		print("NOT ENOUGH CREDITS FOR THIS WAVE!")
 	pass
-
+		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	random.randomize()
@@ -91,4 +95,14 @@ func _process(delta: float) -> void:
 		d_credit_rate += .75
 		difficulty_scaling.start()
 		print(d_credit_rate)
+	pass
+	
+func _aggro_spawn() -> void:
+	d_credit_rate = d_credit_rate * 2.5
+	shattered = true
+	pass
+	
+func _aggro_off() -> void:
+	d_credit_rate = d_credit_rate * .5
+	shattered = false
 	pass
