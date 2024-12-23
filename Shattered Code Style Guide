@@ -1,0 +1,114 @@
+Shattered Coding Style Guidelines:
+
+Try to keep lines to <80 characters
+
+Class/Node Names:
+Capitalize first of each word, no spaces (EX "CanvasLayer")
+Denote all classes with "class_name MyClass"
+
+
+Script/File Names:
+match the name of the relevant node, no capitalization & underscores replace spaces (EX "chip_spawner.gd")
+
+
+Indentation:
+One tab for nested blocks EX
+for i in range(10):
+	print("hello")
+
+Two tabs for for continious lines with the exception of arrays, dictionaries, and enums EX
+effect.interpolate_property(sprite, "transform/scale",
+		sprite.get_scale(), Vector2(2.0, 2.0), 0.3)
+var party = [
+	"Godot",
+	"Godette",
+	"Steve",
+]
+***MAKE SURE TO ADD TRAILING COMMAS TO ALL ARRAYS DICTS AND ENUMS, EASIER TO REFRACTOR***
+
+
+Functions:
+no capitalization & underscores replace spaces. Underscore before first word  denote built in or private functions(EX "func _attack_speed_buff()")
+(private functions should only be called from within the class, but this is not strictly enforced in the compiler. Mostly a style thing)
+
+Seperate function declarations with 2 lines EX
+func heal(amount):
+	health += amount
+
+
+func take_damage(amount, effect=null):
+	health -= amount
+
+
+Conditional Statements:
+Long statements can be done using paranthesis and a double indent. Place AND/Or at the begining of new lines EX
+if (
+		position.x > 200 and position.x < 400
+		and position.y > 300 and position.y < 400
+):
+	pass
+
+Use plain english operators (and vs &&) when doing conditional statements. Also use paranthesis to clear ambiguity (EX "if (foo and bar) or not baz:")
+
+
+Comments:
+# is used for line comments, ## is used for document comments (ex explaining what a class does). ALWAYS ADD A SPACE AFTER THE #
+
+
+Dictionaries:
+Place spaces around single line dictionaries to distinguish them from arrays (EX "my_dictionary = { key = "value" }")
+
+
+Numbers:
+Always add trailing or leading 0s when setting/declaring floats (EX 0.12 or 13.0)
+
+use underscores in place of commas for code readability (EX "1_234_567_890")
+
+constants use all caps and underscores for spaces (EX "const MAX_SPEED = 200")
+
+
+Variables:
+no capitalization & underscores replace spaces (EX "var pane_set")
+only declare variables are "member" variables (not inside init()) if it is used/called outside of a class
+
+
+Enums:
+Names use capitals and no spaes (EX "MoveSet"), members are all capitalized with underscores (EX "BOUNCING_FISH")
+Always have lines between  enum member declaration EX
+enum Element {
+	EARTH,
+	WATER,
+]}
+
+
+Signals:
+Use ast tense, no capitlization and underscores for spaces (EX "signal Player_Shattered")
+
+
+Ordering:
+01. @tool
+02. class_name
+03. extends
+04. ## docstring
+
+05. signals
+06. enums
+07. constants
+08. @export variables
+09. public variables
+10. private variables
+11. @onready variables
+
+12. optional built-in virtual _init method
+13. optional built-in virtual _enter_tree() method
+14. built-in virtual _ready method
+15. remaining built-in virtual methods
+16. public methods
+17. private methods
+18. subclasses
+
+*** init() and ready() goes before all other declared functions, then overwritten virtual methods, public and finally rivate methods***
+
+
+
+

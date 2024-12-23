@@ -28,8 +28,7 @@ func _shattered() -> void:
 	P_shattered_active = true
 	get_child(4).start(p_shattered_seconds)
 	get_tree().call_group("enemies", "_shattered_aggro")
-	get_tree().call_group("director", "_aggro_off")
-	
+	get_tree().call_group("director", "_aggro_spawn")
 	pass
 	
 func _attack_speed_buff() -> void:

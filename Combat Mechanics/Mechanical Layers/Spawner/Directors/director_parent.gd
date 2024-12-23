@@ -52,16 +52,9 @@ func _spawn_wave(timer : float) -> void:
 		print(str(floor(d_credits), " remaining credits after wave!"))
 		for x in wave[1]:
 			var enemy_instance = enemy_load_deck[wave[0]].instantiate()
-			#print("created enemy")
-			#get_tree().root.add_child(enemy_instance)
 			add_child(enemy_instance)
 			var x_range = Vector2(1250, 1920)
 			var y_range = Vector2(50, 1030)
-
-			#enemy_instance._get_layer_color(current_pane.pane_color_index)
-			#var random_x = randi() % int(x_range[1]- x_range[0]) + 1 + x_range[0] 
-			#randomize()
-			#var random_y =  randi() % int(y_range[1]-y_range[0]) + 1 + y_range[0]
 			randomize()
 			var random_pos = Vector2(randi_range(x_range[0], x_range[1]), randi_range(50, 1030))
 			randomize()
