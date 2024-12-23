@@ -1,5 +1,11 @@
+class_name DirectorParent
 extends Node2D
-var enemy_load_deck : Dictionary = {"chip" : preload("res://Enemy Chips/Melee/Basic/Chip.tscn"), "fast_chip" : preload("res://Enemy Chips/Melee/Fast/fast_chip.tscn"), "chip_angle" : preload("res://Enemy Chips/Melee/Angled/chip_angle.tscn"), "chip_shoot" : preload("res://Enemy Chips/Ranged/Basic/chip_shoot.tscn")}
+## ***Director Parent Script***
+## Director Parent specifies the spawning behavior for enemy chip waves.
+## This system is from Risk of Rain 2, 
+## I recreated it base on info from the game's wiki.
+## Helps ensure enemy waves feel random, dynamic yet fair.
+## Parent class is used so 2 seperate spawning entities can be used.
 
 
 @export var d_spawn_area : Rect2
@@ -51,7 +57,7 @@ func _spawn_wave(timer : float) -> void:
 		print(str("creating wave of ", wave[1], " ", wave[0], "s" ))
 		print(str(floor(d_credits), " remaining credits after wave!"))
 		for x in wave[1]:
-			var enemy_instance = enemy_load_deck[wave[0]].instantiate()
+			var enemy_instance = GlobalConstants.ENEMY_DECK_MASTER[wave[0]].instantiate()
 			add_child(enemy_instance)
 			var x_range = Vector2(1250, 1920)
 			var y_range = Vector2(50, 1030)

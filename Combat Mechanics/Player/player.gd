@@ -15,8 +15,8 @@ var p_attack_speed =.3
 var bullet_color = Color("WHITE")
 
 @onready var bullet_spawn : Node = get_tree().get_first_node_in_group("Bullet Marker")
-@onready var combat_layer:  Node = get_tree().get_first_node_in_group("combat layer")
-@onready var color_layer:  Node = get_tree().get_first_node_in_group("Color Change Layer")
+@onready var combat_layer:  Node = get_tree().get_first_node_in_group("chip_spawner")
+@onready var color_layer:  Node = get_tree().get_first_node_in_group("pane_painter")
 
 # Instantiating scenes for instance spawning
 
@@ -28,7 +28,7 @@ func _shattered() -> void:
 	P_shattered_active = true
 	get_child(4).start(p_shattered_seconds)
 	get_tree().call_group("enemies", "_shattered_aggro")
-	get_tree().call_group("director", "_aggro_spawn")
+	get_tree().call_group("directors", "_aggro_spawn")
 	pass
 	
 func _attack_speed_buff() -> void:
@@ -157,7 +157,7 @@ func _on_shattered_timer_timeout() -> void:
 	p_shattered_seconds = p_shattered_seconds + 2
 	P_shattered_active = false
 	get_tree().call_group("enemies", "_shattered_calm")
-	get_tree().call_group("director", "_aggro_off")
+	get_tree().call_group("directors", "_aggro_off")
 	pass # Replace with function body.
 
 

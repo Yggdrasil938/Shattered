@@ -5,7 +5,7 @@ var e_bullet = preload("res://Enemy Chips/Ranged/Shared/chip_bullet.tscn")
 var random = RandomNumberGenerator.new()
 @onready var timer = get_child(3)
 var waiting_to_shoot = false
-@onready var combat_layer:  Node = get_tree().get_first_node_in_group("combat layer")
+@onready var combat_layer:  Node = get_tree().get_first_node_in_group("chip_spawner")
 
 
 # Called when the node enters the scene tree for the first ti me.

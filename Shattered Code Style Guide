@@ -82,7 +82,12 @@ enum Element {
 
 
 Signals:
-Use ast tense, no capitlization and underscores for spaces (EX "signal Player_Shattered")
+Use past tense, no capitlization and underscores for spaces (EX "signal Player_Shattered")
+
+
+Groups
+based on class name, no capitalization and use underscores to replace spaces (EX "chip_spawner")
+make it plural if there are multiple, only make it global for needed signal calls (EX "enemies")
 
 
 Ordering:
@@ -108,7 +113,7 @@ Ordering:
 18. subclasses
 
 *** init() and ready() goes before all other declared functions, then overwritten virtual methods, public and finally rivate methods***
-
-
+***3 lines in between sections, 2 in between functions, 1 in between lines for organization purposes***
+***node ref preloaders will always be at the top. These statements are quite long so I want a bit of separation from the more important parts of the code***
 
 

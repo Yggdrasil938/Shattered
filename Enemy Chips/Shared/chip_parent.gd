@@ -3,7 +3,7 @@ var layer_color : float =  0
 @export var move_speed = 150
 var e_color = 0
 var direction = Vector2 (-1,0)
-@onready var current_pane : Node = get_tree().get_first_node_in_group("Color Change Layer")
+@onready var current_pane : Node = get_tree().get_first_node_in_group("pane_painter")
 @onready var player : Node = get_tree().get_first_node_in_group("player")
 
 var shattered = false

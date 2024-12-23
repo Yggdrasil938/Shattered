@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Combat Mechanics/Player/player.gd" id="1_s7c81"]
 [ext_resource type="Script" path="res://Combat Mechanics/Player/player_camera.gd" id="2_lalye"]
 
-[node name="Player" type="CharacterBody2D" groups=["Fast Director", "Slow Director", "player"]]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 use_parent_material = true
 position = Vector2(124, 545)
 scale = Vector2(0.626792, 0.541415)

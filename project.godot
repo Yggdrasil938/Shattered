@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.3", "Mobile")
 run/max_fps=60
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalConstants="*res://global_constants.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -33,11 +37,11 @@ levels=""
 player=""
 "spawn timer"=""
 e_bullet=""
-"Color Change Layer"=""
-"combat layer"=""
 "camera main"=""
 "player camera"=""
-director=""
+chip_spawner=""
+pane_painter=""
+directors=""
 
 [input]
 

@@ -9,7 +9,7 @@ colors = PackedColorArray(0.580392, 0.580392, 0.580392, 0.160784, 1, 1, 1, 0.584
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_nacyu"]
 gradient = SubResource("Gradient_xlmhf")
 
-[node name="Pane Painter" type="CanvasLayer" groups=["Color Change Layer"]]
+[node name="Pane Painter" type="CanvasLayer" groups=["pane_painter"]]
 layer = -1
 follow_viewport_enabled = true
 script = ExtResource("1_gafm4")
