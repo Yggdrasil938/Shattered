@@ -1,6 +1,5 @@
-class_name DebugLevel
 extends Node2D
-## ***Debug Level Script***
+## ***DEBUG LEVEL SCRIPT***
 ## Contains enemy decks and pane sets used for testing purposes.
 
 
@@ -8,9 +7,9 @@ extends Node2D
 # Set of enemy decks in current level
 # [0] is the enemy price, [1] is how many "tickets" it puts in the lottery
 var melee_deck: Dictionary = {
-	"chip": [3,3],
-	"fast_chip": [5,2],
-	"chip_angle": [2,2],
+	"chip": [3, 3],
+	"fast_chip": [5, 2],
+	"chip_angle": [2, 2],
  }
 #var melee_deck: Dictionary = {
 	#"chip": [3,3],
@@ -36,9 +35,9 @@ var level_deck: Dictionary = {
 #}
 
 # Set of color panes in the current level by index.
-#var level_pane_set: Array[int] = [0,1]
-#var level_pane_set: Array[int] = [0,1,2,3,4,5,6,7,8,9] 
-var level_pane_set: Array[int] = [0,1,3,4]
+#var level_pane_set: Array[int] = [0, 1]
+#var level_pane_set: Array[int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
+var level_pane_set: Array[int] = [0, 1, 3, 4]
 
 
 
